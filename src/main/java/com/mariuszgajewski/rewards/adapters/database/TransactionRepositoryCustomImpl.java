@@ -2,13 +2,12 @@ package com.mariuszgajewski.rewards.adapters.database;
 
 import com.mariuszgajewski.rewards.domain.model.Transaction;
 import com.mariuszgajewski.rewards.domain.model.TransactionAmount;
-import com.mariuszgajewski.rewards.domain.ports.TransactionRepository;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
 import java.time.ZonedDateTime;
 import java.util.List;
 

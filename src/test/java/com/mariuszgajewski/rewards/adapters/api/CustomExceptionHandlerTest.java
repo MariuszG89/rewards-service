@@ -3,6 +3,7 @@ package com.mariuszgajewski.rewards.adapters.api;
 import com.mariuszgajewski.rewards.domain.exception.ApiErrorResponse;
 import com.mariuszgajewski.rewards.domain.exception.ErrorMessage;
 import com.mariuszgajewski.rewards.domain.exception.TransactionNotFoundException;
+import jakarta.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -11,13 +12,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.context.request.ServletWebRequest;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.concurrent.ExecutionException;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.matches;
 import static org.mockito.Mockito.mock;

@@ -9,18 +9,13 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/rewards-service/**")
+        http.authorizeHttpRequests(requests -> requests
+                .requestMatchers("/rewards-service/**")
                 .authenticated()
-                .and()
-                .authorizeRequests()
-                .antMatchers("/swagger-ui/**").permitAll()
-                .and()
-                .authorizeRequests()
-                .antMatchers("/v3/api-docs.yaml").permitAll()
+                .requestMatchers("/swagger-ui/**").permitAll()
+                .requestMatchers("/v3/api-docs.yaml").permitAll()
                 .anyRequest()
-                .authenticated()
-                .and()
+                .authenticated())
                 .csrf().disable()
                 .httpBasic();
         return http.build();
